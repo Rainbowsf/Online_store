@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {{category.name}}
+{% endblock %}
+{% block content %}
+    <h1>{{category.name}}</h1>
+    {%for product in product_list%}
+        <ul>
+            <li><a href="{% url 'product-detail' product.slug %}"><p>{{product.name}}</p>
+            <img src="{{ product.image.url }}"></a></li>
+        </ul>
+    {%endfor%}
+{% endblock %}
