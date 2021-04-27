@@ -5,10 +5,14 @@
 {% endblock %}
 {% block content %}
     <h1>{{object.name}}</h1>
-    <img src="{{ object.image.url }}" alt="{{object.name}}">
+    <img src="{{ object.image.url }}" alt="{{object.name}}" width="500">
     <p>Описание:</p>
     <p>{{object.description}}</p>
     <p>Цена:</p>
     <p>{{object.price}} рублей</p>
-    <button>в корзину</button>
+    <form action="{% url 'cart:cart_add' object.id %}" method="post">
+    {{ form }}
+    {% csrf_token %}
+    <input type="submit" value="Добавить в корзину">
+</form>
 {% endblock %}
