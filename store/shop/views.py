@@ -7,12 +7,18 @@ from cart.forms import CartAddProductForm
 
 
 class CategoryListView(ListView):
+    """
+        Представление списка категорий
+    """
     model = Category
     template_name = 'base.html'
     context_object_name = 'category_list'
 
 
 class CategoryDetailView(DetailView):
+    """
+        Представление списка товаров одной категории
+    """
     model = Category
     template_name = 'shop/product-list.html'
     context_object_name = 'category'
@@ -25,6 +31,9 @@ class CategoryDetailView(DetailView):
 
 
 class ProductDetailView(DetailView, FormMixin):
+    """
+        Представление товара
+    """
     model = Product
     template_name = 'shop/product-detail.html'
     context_object_name = 'product_detail'

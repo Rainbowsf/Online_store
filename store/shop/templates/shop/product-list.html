@@ -9,7 +9,7 @@
         <ul>
             <li><a href="{% url 'shop:product-detail' product.slug %}"><p>{{product.name}}</p>
             <img src="{{ product.image.url }}" width="300"></a></li>
-            <p>Цена: {{product.price}}</p>
+            <p>Цена: ₽{{product.price}}</p>
         </ul>
     {%endfor%}
 {% endblock %}
