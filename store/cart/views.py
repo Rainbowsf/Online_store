@@ -36,6 +36,4 @@ def cart_detail(request):
         Отображение корзины
     """
     cart = Cart(request)
-    category_list = Category.objects.all()
-    return render(request, 'cart/cart-detail.html', {'cart': cart,
-                                                     'category_list': category_list})
+    return render(request, 'cart/cart-detail.html', {'cart': cart})

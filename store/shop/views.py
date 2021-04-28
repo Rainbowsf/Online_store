@@ -26,7 +26,6 @@ class CategoryDetailView(DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super(CategoryDetailView, self).get_context_data(*args, **kwargs)
         context['product_list'] = Product.objects.filter(available=True, category=self.object)
-        context['category_list'] = Category.objects.all()
         return context
 
 
@@ -41,5 +40,4 @@ class ProductDetailView(DetailView, FormMixin):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
-        context['category_list'] = Category.objects.all()
         return context
