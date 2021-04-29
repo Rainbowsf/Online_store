@@ -46,7 +46,11 @@
         </tbody>
     </table>
     <p class="text-right">
-        <a href="{% url 'shop:category-list' %}" class="button light">На главную</a>
-        <a href="#" class="button">Перейти к оплате</a>
+        <a href="{% url 'shop:category-list' %}" class="button light">
+            В каталог
+        </a>
+        <a href="{% url 'orders:order_create' %}" class="button">
+            Оформить заказ
+        </a>
     </p>
 {% endblock %}
