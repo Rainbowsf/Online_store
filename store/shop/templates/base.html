@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/ base.css" %}" rel="stylesheet">
+</head>
+<body>
+<div id="header">
+    <a href="/" class="logo">My shop</a>
+</div>
+<div id="subheader">
+    <div class="cart">
+    {% with total_items=cart|length %}
+        {% if cart|length > 0 %}
+            <a href="{% url 'cart:cart_detail' %}">
+                Корзина:
+                {{ total_items }}
+            </a>
+        {% else %}
+            Корзина пуста
+        {% endif %}
+    {% endwith %}
+</div>
+</div>
+<div class="sidebar">
+    <p>Товары:</p>
+    {%for category in category_list%}
+        <p><a href="{%url 'shop:product-list' category.slug%}">{{category.name}}</a></p>
+    {%endfor%}
+</div>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<p><a href="https://vk.com/public180751220">vk</a></p>
+<p><a href="https://www.instagram.com/helenkaniyaz/">inst</a></p>
+</body>
+</html>
