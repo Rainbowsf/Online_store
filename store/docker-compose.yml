@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  store_db:
+    image: postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/12/
+    environment:
+      POSTGRES_PASSWORD: 1974
+      POSTGRES_USER: store
+      POSTGRES_DB: store
+  django:
+    tty: true
+    container_name: store
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command:  bash -c "python manage.py migrate --noinput &&
+              python manage.py runserver 0.0.0:8000"
+    volumes:
+      - .:/usr/src/Online_store
+    ports:
+      - 8000:8000
+    depends_on:
+      - store_db
+
+
+volumes:
+  pg_data:

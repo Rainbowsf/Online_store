@@ -65,15 +65,26 @@ WSGI_APPLICATION = 'store.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+"""    
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'store',
         'USER': 'store',
-        'HOST': 'localhost',
-        'PORT': '',  # пустая строка для стандартного
+        'HOST': 'store_db',
         'PASSWORD': '1974',  # пароль
+        'PORT': 5432,
+    }
+}
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'store',
+        'USER': 'store',
+        'HOST': 'store_db',
+        'PASSWORD': '1974',  # пароль
+        'PORT': 5432,
     }
 }
 
