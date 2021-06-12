@@ -132,6 +132,9 @@ EMAIL_BACKEND = "users.backends.CustomEmailBackend"
 CELERY_BROKER_URL = 'amqp://username:password@localhost:5672/vhost'
 
 EMAIL_HOST = 'smtp.mailtrap.io'
+
 EMAIL_HOST_USER = 'fadeev200027@gmail.com'
+
 EMAIL_HOST_PASSWORD = '123456hjkl'
+
 EMAIL_PORT = 2525
