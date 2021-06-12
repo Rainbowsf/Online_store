@@ -68,11 +68,14 @@ WSGI_APPLICATION = 'store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'store',
+        'USER': 'store',
+        'PASSWORD': '1974',  # пароль
+        'PORT': 5432,
+        'HOST': 'store_db',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -123,4 +126,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "users.backends.CustomEmailBackend"
+
+CELERY_BROKER_URL = 'amqp://username:password@localhost:5672/vhost'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'fadeev200027@gmail.com'
+EMAIL_HOST_PASSWORD = '123456hjkl'
+EMAIL_PORT = 2525
