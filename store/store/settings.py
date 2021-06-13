@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-import
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -73,8 +72,10 @@ DATABASES = {
         'NAME': 'store',
         'USER': 'store',
         'PASSWORD': '1974',  # пароль
-        'PORT': 5432,
-        'HOST': 'store_db',
+        'PORT': '',
+        'HOST': '',
+        # 'PORT': 5432,
+        # 'HOST': 'store_db',
     }
 }
 
@@ -127,14 +128,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
 
-EMAIL_BACKEND = "users.backends.CustomEmailBackend"
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-CELERY_BROKER_URL = 'amqp://username:password@localhost:5672/vhost'
+CELERY_BROKER_URL = 'redis://redis:6379/0'
 
-EMAIL_HOST = 'smtp.mailtrap.io'
-
-EMAIL_HOST_USER = 'fadeev200027@gmail.com'
-
-EMAIL_HOST_PASSWORD = '123456hjkl'
-
-EMAIL_PORT = 2525
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
