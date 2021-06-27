@@ -72,8 +72,8 @@ DATABASES = {
         'NAME': 'store',
         'USER': 'store',
         'PASSWORD': '1974',  # пароль
-        'PORT': '',
-        'HOST': '',
+        'PORT': '5432',
+        'HOST': '127.0.0.1',
         # 'PORT': 5432,
         # 'HOST': 'store_db',
     }
