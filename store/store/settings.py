@@ -69,11 +69,11 @@ WSGI_APPLICATION = 'store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'store',
-        'USER': 'store',
+        'NAME': 'store_db',
+        'USER': 'storedb',
         'PASSWORD': '1974',  # пароль
         'PORT': '5432',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         # 'PORT': 5432,
         # 'HOST': 'store_db',
     }
@@ -130,6 +130,11 @@ CART_SESSION_ID = 'cart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
 
-CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+
+# CELERY_BROKER_URL = 'redis://redis:6379/0' for docker
+
+# CELERY_RESULT_BACKEND = 'redis://redis:6379/0' for docker
+
