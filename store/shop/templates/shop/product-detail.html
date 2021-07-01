@@ -11,7 +11,7 @@
     <p>Цена:</p>
     <p>₽{{object.price}}</p>
     <form action="{% url 'cart:cart_add' object.id %}" method="post">
-    {{ form }}
+    {{ form.as_hidden }}
     {% csrf_token %}
     <input type="submit" value="Добавить в корзину">
 </form>
