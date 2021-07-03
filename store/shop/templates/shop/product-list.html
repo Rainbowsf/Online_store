@@ -10,6 +10,11 @@
             <li><a href="{% url 'shop:product-detail' product.slug %}"><p>{{product.name}}</p>
             <img src="{{ product.image.url }}" width="300"></a></li>
             <p>Цена: ₽{{product.price}}</p>
+            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                {{ form.as_hidden }}
+                {% csrf_token %}
+                <input type="submit" value="Добавить в корзину">
+            </form>
         </ul>
     {%endfor%}
 {% endblock %}

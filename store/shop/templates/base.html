@@ -19,7 +19,9 @@
                     {{ total_items }}
                 </a>
             {% else %}
-                <img src="/media/images/cart.png" alt="cart" height=30px>
+                <a href="{% url 'cart:cart_detail' %}">
+                    <img src="/media/images/cart.png" alt="cart" height=30px>
+                </a>
             {% endif %}
         {% endwith %}
     </div>

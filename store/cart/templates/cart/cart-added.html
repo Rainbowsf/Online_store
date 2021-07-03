@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Товар добавлен
+{% endblock %}
+{% block content %}
+    <p>Товар успешно добавлен в корзину!</p>
+    <a href="{%url 'cart:cart_detail'%}"><p>Посмотреть корзину..</p></a>
+    <a href="{%url 'shop:category-list'%}"><p>Продолжить покупки..</p></a>
+{% endblock %}

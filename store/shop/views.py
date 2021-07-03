@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from urllib import request, response
 from django.views.generic.edit import FormMixin
 from cart.forms import CartAddProductForm
@@ -11,7 +11,7 @@ class CategoryListView(ListView):
         Представление списка категорий
     """
     model = Category
-    template_name = 'base.html'
+    template_name = 'shop/index.html'
     context_object_name = 'category_list'
 
 

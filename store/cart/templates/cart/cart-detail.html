@@ -4,6 +4,7 @@
     Your shopping cart
 {% endblock %}
 {% block content %}
+{%if cart|length > 0 %}
     <h1>Ваша корзина</h1>
     <table class="cart">
         <thead>
@@ -53,4 +54,7 @@
             Оформить заказ
         </a>
     </p>
+{%else%}
+<p>Ваша корзина пуста!</p>
+{%endif%}
 {% endblock %}
