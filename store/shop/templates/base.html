@@ -27,6 +27,10 @@
     </div>
 </div>
 <div class="sidebar">
+    <a href="{%url 'shop:about'%}"><p>О нас</p></a>
+    <a href="{%url 'shop:contacts'%}"><p>Контакты</p></a>
+    <a href="{%url 'shop:delivery'%}"><p>Доставка</p></a>
+    <a href="{%url 'shop:make_order'%}"><p>Сделать персональный заказ</p></a>
     <p>Товары:</p>
     {%for category in category_list%}
         <p><a href="{%url 'shop:product-list' category.slug%}">{{category.name}}</a></p>
@@ -40,6 +44,8 @@
     <p>
         <a href="https://vk.com/public180751220"><img src="/media/images/vk.png" alt="vk" height=30px></a>
         <a href="https://vk.com/public180751220"><img src="/media/images/inst.png" alt="instagramm" height=30px></a>
+        <a href=""><img src="/media/images/viber.png" alt="Viber" height=30px></a>
+        <a href=""><img src="/media/images/WhatsApp.png" alt="WhatsApp" height=30px></a>
     </p>
 </div>
 </body>

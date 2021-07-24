@@ -41,3 +41,32 @@ class ProductDetailView(DetailView, FormMixin):
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
         return context
+
+
+def contacts(request):
+    """
+        Представление странцы с контактами
+    """
+    return render(request, 'shop/contacts.html')
+
+
+def about(request):
+    """
+        Представление странцы о нас
+    """
+    return render(request, 'shop/about.html')
+
+
+def delivery(request):
+    """
+        Представление странцы доставки
+    """
+    return render(request, 'shop/delivery.html')
+
+
+def make_order(request):
+    """
+        Представление странцы с информацией о персональных заказах
+    """
+    return render(request, 'shop/make_order.html')
+
