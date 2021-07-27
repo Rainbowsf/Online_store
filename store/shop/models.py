@@ -27,12 +27,15 @@ class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True, verbose_name="Название товара")
     slug = models.SlugField(max_length=200, db_index=True, verbose_name="Слаг для ссылки")
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name="Изображение товара")
+    image1 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name="2 Изображение товара")
+    image2 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name="3 Изображение товара")
     description = models.TextField(blank=True, verbose_name="Описание товара")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена товара")
     stock = models.PositiveIntegerField(verbose_name="Количество")
     available = models.BooleanField(default=True, verbose_name="Доступен для продажи")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Создан")
     updated = models.DateTimeField(auto_now=True, verbose_name="Обновлен")
+    main_page = models.BooleanField(default=False, verbose_name="Отображается на главной")
 
     class Meta:
         verbose_name = "Товар"
