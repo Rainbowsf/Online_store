@@ -4,39 +4,53 @@
 <head>
     <meta charset="utf-8"/>
     <title>{% block title %}Украшения ручной работы{% endblock %}</title>
-    <link href="{% static "css/ base.css" %}" rel="stylesheet">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 <body>
-<div id="header">
-    <a href="/" class="logo"><p>Украшения ручной работы</p></a>
-</div>
-<div id="subheader">
-    <div class="cart">
-        {% with total_items=cart|length %}
-            {% if cart|length > 0 %}
-                <a href="{% url 'cart:cart_detail' %}">
-                    <img src="/media/images/cart.png" alt="cart" height=30px>
-                    {{ total_items }}
-                </a>
-            {% else %}
-                <a href="{% url 'cart:cart_detail' %}">
-                    <img src="/media/images/cart.png" alt="cart" height=30px>
-                </a>
-            {% endif %}
-        {% endwith %}
+<div class="header">
+    <div class = "header_text">
+        <a href="{%url 'shop:category-list' %}" class="logo"><H1>Украшения ручной работы</H1></a>
+    </div>
+
+    <div class = "sidebar">
+        <ul>
+            <li>
+                <div class = "dropdown">
+                    <p class="dropdown-name">Товары</p>
+                    <div class="dropdown-content">
+                        {%for category in category_list%}
+                            <p><a href="{% url 'shop:product-list' category.slug %}">{{category.name}}</a></p>
+                        {%endfor%}
+                    </div>
+                </div>
+            </li>
+            <li> <a href="{%url 'shop:about'%}"><p>О нас</p></a></li>
+            <li><a href="{%url 'shop:contacts'%}"><p>Контакты</p></a></li>
+            <li><a href="{%url 'shop:delivery'%}"><p>Доставка</p></a></li>
+            <li><a href="{%url 'shop:make_order'%}"><p>Сделать персональный заказ</p></a></li>
+
+            <li>
+                <div class="cart">
+                {% with total_items=cart|length %}
+                    {% if cart|length > 0 %}
+                        <a href="{% url 'cart:cart_detail' %}">
+                            <img src="/media/images/cart.png" alt="cart" height=30px>
+                            {{ total_items }}
+                        </a>
+                    {% else %}
+                        <a href="{% url 'cart:cart_detail' %}">
+                            <img src="/media/images/cart.png" alt="cart" height=30px>
+                        </a>
+                    {% endif %}
+                {% endwith %}
+            </li>
+
+        </ul>
     </div>
 </div>
-<div class="sidebar">
-    <a href="{%url 'shop:about'%}"><p>О нас</p></a>
-    <a href="{%url 'shop:contacts'%}"><p>Контакты</p></a>
-    <a href="{%url 'shop:delivery'%}"><p>Доставка</p></a>
-    <a href="{%url 'shop:make_order'%}"><p>Сделать персональный заказ</p></a>
-    <p>Товары:</p>
-    {%for category in category_list%}
-        <p><a href="{%url 'shop:product-list' category.slug%}">{{category.name}}</a></p>
-    {%endfor%}
-</div>
-<div id="content">
+<div class="content">
     {% block content %}
     {% endblock %}
 </div>

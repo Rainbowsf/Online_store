@@ -4,5 +4,8 @@
     Главная
 {% endblock %}
 {% block content %}
-Украшения ручной работы!
+      <p>Товары:</p>
+    {%for category in category_list%}
+        <p><a href="{%url 'shop:product-list' category.slug%}">{{category.name}}</a></p>
+    {%endfor%}
 {% endblock %}
