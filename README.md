@@ -16,4 +16,6 @@
 		
 Планируется добавить:
 
-	Фронтенд: 
+	Фронтенд пока что выглядит вот так...
+![image](https://user-images.githubusercontent.com/81432272/127314165-28850dea-d5f2-4b83-ae2f-043d3e396019.png)
+![image](https://user-images.githubusercontent.com/81432272/127314301-8c9d7857-f074-4f56-8da6-e2e77d728edd.png)
