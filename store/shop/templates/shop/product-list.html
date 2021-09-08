@@ -5,16 +5,25 @@
 {% endblock %}
 {% block content %}
     <h1>{{category.name}}</h1>
-    {%for product in product_list%}
-        <ul>
-            <li><a href="{% url 'shop:product-detail' product.slug %}"><p>{{product.name}}</p>
-            <img src="{{ product.image.url }}" width="300"></a></li>
-            <p>Цена: ₽{{product.price}}</p>
-            <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                {{ form.as_hidden }}
-                {% csrf_token %}
-                <input type="submit" value="Добавить в корзину">
-            </form>
-        </ul>
-    {%endfor%}
+    <ul class="products clearfix">
+        {%for product in product_list%}
+            <li class="product-wrapper">
+                <a href="{% url 'shop:product-detail' product.slug %}" class="product">
+                    <div class="product-photo">
+                        <img src="{{ product.image.url }}">
+                    </div>
+                 <div class="product-name">{{product.name}}</div>
+                <div class="product-price">₽{{product.price}}</div>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    <div class="product-buttons-wrap">
+                        {{ form.as_hidden }}
+                        {% csrf_token %}
+                        <button type="submit" class = "buttons">Добавить в корзину</button>
+                        <button class = "buttons">Подробнее</button>
+                    </div>
+                </form>
+                </a>
+            </li>
+        {%endfor%}
+    </ul>
 {% endblock %}
